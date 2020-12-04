@@ -8,3 +8,9 @@ Start: 20:12
 Solution at: 20:48
 End: 20:53
 Notes: NamedTuple seems nifty, but it may not have been the best choice for this particular use case. A class that split the instruction line in the initialization method may have been a little cleaner.
+
+03DEC2020
+Start: 19:07
+Solution at: 19:55
+End: 20:17
+Notes: I struggled more than I would like to admit massaging the input into the shape I wanted. I forgot the names of a few string methods and how triple quoted strings handle whitespace. I also was quite confused for an embarrassingly long time about an `IndexError` I encountered in the initial implementation. `1 != 0`... I have not recently used a language that starts index positions with `1`, so I'm not sure why I did not catch that quickly. Something I did well was predict the possible complications added by part two. This allowed me to design and implement one algorithm for both parts.
