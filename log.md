@@ -14,3 +14,11 @@ Start: 19:07
 Solution at: 19:55
 End: 20:17
 Notes: I struggled more than I would like to admit massaging the input into the shape I wanted. I forgot the names of a few string methods and how triple quoted strings handle whitespace. I also was quite confused for an embarrassingly long time about an `IndexError` I encountered in the initial implementation. `1 != 0`... I have not recently used a language that starts index positions with `1`, so I'm not sure why I did not catch that quickly. Something I did well was predict the possible complications added by part two. This allowed me to design and implement one algorithm for both parts.
+
+04DEC2020
+Start: 18:24
+Solution at: 19:51
+End: 19:54
+Notes: This one seemed to be all about attention to detail. The details I initially missed were:
+    - The max valid issue year was 2020. I initially had 2030.
+    - Hair color was a `#` followed by exactly six characters. I forgot to include a character count in the regex I used for that.
