@@ -22,3 +22,9 @@ End: 19:54
 Notes: This one seemed to be all about attention to detail. The details I initially missed were:
     - The max valid issue year was 2020. I initially had 2030.
     - Hair color was a `#` followed by exactly six characters. I forgot to include a character count in the regex I used for that.
+
+05DEC2020
+Start: 07:24
+Solution at: 08:03
+End: 08:26
+Notes: Identifying that the row and column could be determined using the same algorithm simplified the implementation. My initial attempt at a memory efficient partition algorithm failed--I did not keep that version, so I'm not sure exactly why--so I fell back on something familiar, binary search on a list. I was able to add a version of it within a few minutes of submitting the solution, so the first attempt was likely off by a detail. Pivoting to something I know will work instead of debugging something that is not working is likely a good strategy when minimizing time to a correct solution is a goal.
