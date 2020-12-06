@@ -28,3 +28,9 @@ Start: 07:24
 Solution at: 08:03
 End: 08:26
 Notes: Identifying that the row and column could be determined using the same algorithm simplified the implementation. My initial attempt at a memory efficient partition algorithm failed--I did not keep that version, so I'm not sure exactly why--so I fell back on something familiar, binary search on a list. I was able to add a version of it within a few minutes of submitting the solution, so the first attempt was likely off by a detail. Pivoting to something I know will work instead of debugging something that is not working is likely a good strategy when minimizing time to a correct solution is a goal.
+
+06DEC2020
+Start: 09:09
+Solution at: 09:30
+End: 10:25
+Notes: The primary difference between the algorithms I used for part one and part two was the way in which sets of answers were combined--union in for part one and intersection for part two. After submitting the solution, I attempted to extract the common portions into a separate function. I found the form I arrived at quite unsatisfying. The answering functions shared a lot of code, but both became harder to understand because the operations were split into multiple small functions that seemed to hide the overall algorithm. Perhaps there was a more elegant way to slice it.
