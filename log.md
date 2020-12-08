@@ -34,3 +34,8 @@ Start: 09:09
 Solution at: 09:30
 End: 10:25
 Notes: The primary difference between the algorithms I used for part one and part two was the way in which sets of answers were combined--union in for part one and intersection for part two. After submitting the solution, I attempted to extract the common portions into a separate function. I found the form I arrived at quite unsatisfying. The answering functions shared a lot of code, but both became harder to understand because the operations were split into multiple small functions that seemed to hide the overall algorithm. Perhaps there was a more elegant way to slice it.
+
+07DEC2020
+Start: 18:02
+Stop: 19:01
+Notes: I'm pretty confident the solution involves converting the rules into a graph, which each of the bag colors as nodes and rules dictating the edges and performing an exhaustive search of that graph for the target color from each of the color nodes. However, implementing that is proving more difficult than it "should." I need to review and practice graph creation and traversal.
