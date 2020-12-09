@@ -39,3 +39,9 @@ Notes: The primary difference between the algorithms I used for part one and par
 Start: 18:02
 Stop: 19:01
 Notes: I'm pretty confident the solution involves converting the rules into a graph, which each of the bag colors as nodes and rules dictating the edges and performing an exhaustive search of that graph for the target color from each of the color nodes. However, implementing that is proving more difficult than it "should." I need to review and practice graph creation and traversal.
+
+08DEC2020
+Start: 18:19
+Solution at: 18:59
+End: 19:27
+Notes: For part two, I initially forgot to multiply the count of the contents of a child bag by the number of siblings of the same type. E.g. if a light red bag contains 2 muted yellow bags then the number of bags inside the red bag was 2 times the count of one yellow bag. This is, of course, obvious, especially when written out. It suggests I needed to take a little more time to imagine the system that I was modeling. The algorithm I used for counting the contents of the bags for part two included the outermost bag in its count, which made it off by one. I "solved" that the easy way by subtracting one at the end. It works, but seems inelegant. An alternative is to add another function that excludes the count of the current bag and have that function call the recursive function that includes the current bag in its count. I'm not convinced that is much better.
