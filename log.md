@@ -57,3 +57,8 @@ Start: 19:42
 Solution at: 20:16
 End: 20:38
 Notes: `deque`'s great. I had forgotten its second argument, `maxlen` existed until my editor reminded me about it. I had some trouble finding the subsequence of addends for the invalid number in part two. I started with a while loop and mismanaged the indexes. Switching to a for loop helped, but felt like giving up. I successfully re-wrote the while loop version after submitting the solution, but I will not be comitting it as I want the repo to represent (for the most part, I am guilty of the occasional post solution variable and function renaming) the implementation that existed when I submitted the solution.
+
+11DEC2020
+Start: 06:50
+Stop: 08:05
+Notes: I found part one fairly straightforward, but I am struggling with part two. I suspect the solution is based on the number of decision points and options at each decision point, but I have not yet determined how to correctly combine those.
