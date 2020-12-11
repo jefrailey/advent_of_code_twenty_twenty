@@ -51,3 +51,9 @@ Start: 18:37
 Solution at: 19:25
 End: 19:41
 Notes: I initially forgot to increment the value of the current instruction for all operations, which caused my simulated console to return `0` for programs that did not start with an `acc`. I spent some time refactoring between part one and two that could have been left until after I had a solution to part two. I found correctly determining if the program had terminated and tracking the current instruction a little difficult. They're both a bit unintuitive because value of the current instruction changes during the evaluation of a statement in the program. So, the current instruction needed to be recorded as evaluated before it was actually evaluated. Likewise, identifying that the final line in the program had been evaluated required either checking if the line to be evaluated was the last line before evaluating it, or identifying that it had been evaluated before attempting to evaluate the next line. This may be improved by tracking the previous instruction and checking that after evaluating each statement.
+
+10DEC2020
+Start: 19:42
+Solution at: 20:16
+End: 20:38
+Notes: `deque`'s great. I had forgotten its second argument, `maxlen` existed until my editor reminded me about it. I had some trouble finding the subsequence of addends for the invalid number in part two. I started with a while loop and mismanaged the indexes. Switching to a for loop helped, but felt like giving up. I successfully re-wrote the while loop version after submitting the solution, but I will not be comitting it as I want the repo to represent (for the most part, I am guilty of the occasional post solution variable and function renaming) the implementation that existed when I submitted the solution.
