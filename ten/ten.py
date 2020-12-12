@@ -86,7 +86,7 @@ Find a chain that uses all of your adapters to connect the charging outlet to yo
 """
 
 
-from typing import Sequence
+from typing import Any, MutableSequence, Optional, Sequence
 
 
 def part_one(adapters: Sequence[int]) -> int:
@@ -167,41 +167,52 @@ You glance back down at your bag and try to remember why you brought so many ada
 
 What is the total number of distinct ways you can arrange the adapters to connect the charging outlet to your device?
 """
-import math
+
+
+"""
+Model adapters as a directed graph with each adapter pointing to one to three other adapters ("children").
+The number of combinations of adapters is the sum of the combinations available to its children.
+Recursively calculating the number of combinations per child for each node will be computationally expensive.
+Calculate the number of combinations per node once and add it to a lookup table.
+If we iterate from the "end" of the adapter chain backwards, then we should be able to determine the
+number of combinations in O(N) where N is the number of adapters.
+
+With this approach, the tricky bits will be identifying all the children and keeping indices in bounds.
+"""
+
 from collections import deque
 
 
-def count_arrangements(adapters: Sequence[int]) -> int:
+def part_two(adapters: Sequence[int]) -> int:
     """
-    Return the count of distinct valid combinations of adapters.
-
-    A valid combination consists of a sequence of adapters that uses the maximum value
-    adapter and contains a difference of at most three between consecutive adapters.
+    Return the number of distinct ways to arrange adapters between a wall outlet and a device.
     """
+    combinations = []
     adapters = deque(sorted(adapters))
-    adapters.appendleft(0)  # Wall outlet
-    options = set(adapters)
-
-    # The shortest sequence occurs when the maximum difference between values is 3
-    # the total number of sequences is going to be based on (factorial of?) the number of options between maximum differences
-    # Using permutations of the full set of adapters does not seem to be quite right because we're "forced" into some sequences
-    # due to the rules and availability of adapters.
-    #
-    # Is it the number of decision points * number of options per decision?
-    # Is it the sum of permutations of each decision point?
-
-    max_ = max(adapters)
-    current = min(adapters)
-    counts = 0
-    while current < max_:
-        counts += math.factorial(
-            sum(item in options for item in range(current + 1, current + 4))
-        )
-        current += 3
-    return counts
+    # Add the wall adapter if it is not present.
+    # The wall adapter can be the parent of 1 to 3 adapters, so excluding it
+    # excludes paths.
+    if adapters[0] != 0:
+        adapters.appendleft(0)
+    adapters.reverse()
+    for idx, adapter in enumerate(adapters):
+        paths = 0
+        # adapter is a direct parent of 1 to 3 adapters to its left.
+        start = max(idx - 4, 0)
+        stop = idx
+        for child_idx in range(start, stop):
+            child = adapters[child_idx]
+            if child - adapter <= 3:
+                paths += combinations[child_idx]
+        combinations.append(max(paths, 1))
+    return combinations[-1]
 
 
 if __name__ == "__main__":
+
+    def verify(expected: Any, actual: Any) -> None:
+        assert expected == actual, f"{expected} != {actual}"
+
     mini_diagnostic = [
         16,
         10,
@@ -215,9 +226,8 @@ if __name__ == "__main__":
         12,
         4,
     ]
-    expected = 7 * 5
-    actual = part_one(mini_diagnostic)
-    assert expected == actual, f"{expected} != {actual}"
+    verify(7 * 5, part_one(mini_diagnostic))
+    verify(8, part_two(mini_diagnostic))
 
     diagnostic = [
         28,
@@ -252,11 +262,10 @@ if __name__ == "__main__":
         10,
         3,
     ]
-
-    expected = 220
-    actual = part_one(diagnostic)
-    assert expected == actual, f"{expected} != {actual}"
+    verify(220, part_one(diagnostic))
+    verify(19208, part_two(diagnostic))
 
     from input_ten import input_
 
     print("Part one: ", part_one(input_))
+    print("Part two: ", part_two(input_))

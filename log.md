@@ -62,3 +62,21 @@ Notes: `deque`'s great. I had forgotten its second argument, `maxlen` existed un
 Start: 06:50
 Stop: 08:05
 Notes: I found part one fairly straightforward, but I am struggling with part two. I suspect the solution is based on the number of decision points and options at each decision point, but I have not yet determined how to correctly combine those.
+
+11DEC2020
+Start: ~18:00
+Stop: ~19:00
+Notes: I was frustrated and I wrote the times and this note on the 12th, so the times are approximate and the note is a summary from memory. I stopped trying to find the solution to Day 10 Part Two mathematically and switched to modeling the adapters as a graph and traversing it. This works for the small (eight adapters) sample input but not for the larger (31 adapters) sample input, so I likely have an error somewhere. I anticipate that a graph traversal will be prohibitively computationally expensive, but I'd like to at least make it work...
+
+12DEC2020
+Start: 08:21
+Solution at: 10:07
+Notes: I could not get graph traversal to work in the amount of time I was willing to spend on an implementation that I suspected would not be suitable for large inputs. I switched to an dynamic programming algorithm. It worked on the small sample input, but not the larger sample input. I was fairly that this approach should work, but confused that it did not work. I spent a lot of time drawing and writing and verifying small slices of the algorithm. Still, nothing. Finally, I realized that I was not modeling the entire adapter chain correctly because I was excluding the wall outlet. I had initially ignored it because my mental model of the domain only allowed for one path from the wall outlet to the adapters--likely because there's only one path from the adapters to the final device. However, that was incorrect. Depending on the available adapters, there could be up to three paths from the wall outlet to the rest of the adapters. Excluding the wall outlet only changes the number of paths if the set of adapters includes adapters with joltage values of 2 and/or 3, which is why the solution succeed for the small sample but not the large sample. Correcting that modeling error by adding the wall outlet to the set of adapters if not already present allowed the algorithm to produce the correct result in all tested cases.
+
+Things I did well:
+    - Identified that this problem likely required dynamic programming early in my first attempt.
+    - Persevered. All told, I spent ~4 hours actively working on this and another ~1 hour thinking about it while doing something else.
+Things I did poorly:
+    - Not acting on my intuition that the solution would require dynamic programming. I may have been able to significantly reduce the time spent if I started with a dynamic programming solution. In part, I may have shied away from it because they tend to involve a lot of index tracking, which is something I do not feel I do well.
+    - Modeling the system. Excluding the wall outlet is one. Thinking about the relations between adapters as a tree was another. Incorrectly considering it a tree instead of a more generic graph is likely what led me to spend so much time looking for a "pure" mathematical approach involving permutations.
+    - Tracking indices.
