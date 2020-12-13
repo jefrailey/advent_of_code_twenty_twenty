@@ -85,3 +85,8 @@ Things I did poorly:
 Start: 06:22
 Solution at: 07:51
 Notes: This seemed fairly straightforward, though the time spent suggests otherwise. Some of that time went into refactoring the implementation that solved part one to minimize duplication in the implementation to solve part two by supporting some functional composition. It could likely be improved further by changing the outermost function, `play()`, to accept a sequence of transformers to apply to each row.
+
+13DEC2020
+Start: 08:07
+Solution at: 09:48
+Notes: For part one, my solution accumulated units in each cardinal direction and obtained the x, y magnitudes after following all of the instructions. This lead to a terser implementation than it would have if I had converted the cardinal directions to x, y coordinates at each iteration step. For part two, I performed the conversion at each iteration because it appeared to simplify (relatively) waypoint rotation. Rotation was the aspect I spent the most time on. For the turning in part one, I could have reached a solution faster if I had hand coded each transition instead of creating a cyclic iterator and pulling from it as getting that implementation correct took several minutes. For the waypoint rotation in part two, I initially stymied myself by thinking that I would need a direction in addition to the waypoint's current position, which was of course incorrect. I could have saved myself some time in both cases had I reached for a paper and pencil to visualize the system sooner. I like the implementation for part two. Including a data structure for state allowed each of the instruction following functions to have a consistent interface, which allowed them to be applied dynamically without conditionals in the dispatcher.
