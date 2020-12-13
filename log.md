@@ -80,3 +80,8 @@ Things I did poorly:
     - Not acting on my intuition that the solution would require dynamic programming. I may have been able to significantly reduce the time spent if I started with a dynamic programming solution. In part, I may have shied away from it because they tend to involve a lot of index tracking, which is something I do not feel I do well.
     - Modeling the system. Excluding the wall outlet is one. Thinking about the relations between adapters as a tree was another. Incorrectly considering it a tree instead of a more generic graph is likely what led me to spend so much time looking for a "pure" mathematical approach involving permutations.
     - Tracking indices.
+
+13DEC2020
+Start: 06:22
+Solution at: 07:51
+Notes: This seemed fairly straightforward, though the time spent suggests otherwise. Some of that time went into refactoring the implementation that solved part one to minimize duplication in the implementation to solve part two by supporting some functional composition. It could likely be improved further by changing the outermost function, `play()`, to accept a sequence of transformers to apply to each row.
