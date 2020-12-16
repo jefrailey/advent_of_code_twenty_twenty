@@ -100,3 +100,9 @@ Notes: Part one was simple. Part two has a fairly simple brute force implementat
 Start: 17:30
 Solution at: 18:39.
 Notes: Worked on day 14 today instead of continuing day 13. I started by reviewing Python's documentation on integers, bytes, and strings. I had vague memories of Python providing a way to convert numbers to binary string representations, but I did not remember the specifics. It seems like there should be a more efficient algorithm for identifying all of the addresses to write to in part two. The number of addresses can be determined in advance by counting the number of `'X'` in the masked address. When an `'X'` is encountered in the masked address, then either a `'0'` or `'1'` could be appended to each address in an alternating fashion. E.g. a `'0'` is appended to all addresses at odd index positions in the "final" address array and a `'1'` appended to all addresses at even index positions in the "final" address array. I think this should work, but my initial attempt (post solution submission) produces repeats of two distinct addresses instead of 2 ** X distinct addresses.
+
+15DEC2020
+Start: 18:01
+Solution at: 18:37
+Notes: I'm not fully satisfied with the running time of my implementation--playing the game to 30,000,000 steps takes ~20 seconds. However, I am not sure that improvements are possible. Since each turn depends on the turn before it, cumulative state must be tracked. Minimal state includes the numbers that have been "played" and the last two turns on which they were played. Maybe it's possible to predict which numbers can never be played again and prune them while playing.
+
