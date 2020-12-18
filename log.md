@@ -106,3 +106,7 @@ Start: 18:01
 Solution at: 18:37
 Notes: I'm not fully satisfied with the running time of my implementation--playing the game to 30,000,000 steps takes ~20 seconds. However, I am not sure that improvements are possible. Since each turn depends on the turn before it, cumulative state must be tracked. Minimal state includes the numbers that have been "played" and the last two turns on which they were played. Maybe it's possible to predict which numbers can never be played again and prune them while playing.
 
+17DEC2020
+Start: 18:00
+Stop: 19:44
+Notes: Day 16. I thought the solution would be recursive descent with backtracking. That appeared to work with the small test input, but it was too slow for the full input. My next approach is to identify which positions on the ticket satisfy each rule then attempt to identify the valid sequence of rules from that set of vectors.
