@@ -110,3 +110,8 @@ Notes: I'm not fully satisfied with the running time of my implementation--playi
 Start: 18:00
 Stop: 19:44
 Notes: Day 16. I thought the solution would be recursive descent with backtracking. That appeared to work with the small test input, but it was too slow for the full input. My next approach is to identify which positions on the ticket satisfy each rule then attempt to identify the valid sequence of rules from that set of vectors.
+
+18DEC2020
+Start: 17:24
+Solution at: 17:52
+Notes: Day 16. All I did was re-confirm that exhaustive search with backtracking was too slow. I'm either implementing it wrong, missing an optimization, or it does not work for this problem type. I was missing an optimization. Sorting by the number of valid positions a rule could apply to greatly reduced the running time.
