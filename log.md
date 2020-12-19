@@ -115,3 +115,8 @@ Notes: Day 16. I thought the solution would be recursive descent with backtracki
 Start: 17:24
 Solution at: 17:52
 Notes: Day 16. All I did was re-confirm that exhaustive search with backtracking was too slow. I'm either implementing it wrong, missing an optimization, or it does not work for this problem type. I was missing an optimization. Sorting by the number of valid positions a rule could apply to greatly reduced the running time.
+
+19DEC2020
+Start: 09:31
+Stop: 11:40
+Notes: Day 17. Quantized 3-D space is difficult to model. I think my initial model, a deque of lists of strings is cumbersome and needs to be replaced with a set of tuples representing x,y,z coordinates of active cubes. This should require less memory to represent and should make identifying a cell's active neighbors much easier--if the neighbor's coordinates are in the set then it's active; otherwise it's inactive.
