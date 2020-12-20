@@ -126,3 +126,7 @@ Start: 09:01
 Solution at: 09:40
 Notes: Day 17. Modeling space as a set of points with active cubes made everything fall into place. I think I stuck with the string model for so long yesterday because it made it easy to compare the output of my implementation to the problem author's representation of a correct simulation at various stages. A better approach would have been to write functions to convert back and forth between representations. My implementation includes separate functions for three and four dimensions that could probably be refactored to allow the same set of functions to simulate n-dimensional space.
 
+20DEC2020
+Start: 13:55
+Stop: 15:54
+Notes: Day 18. Part one was doable by evaluating while parsing. The change in part two makes correctly evaluating addition after one closing parenthesis but inside another, e.g. `((1 + 2) * (1 + 2) + 1)`, difficult. Part two may benefit from separating parsing and evaluation. This change would allow the evaluator to iteratively manipulate the tree first replacing all additions with literal values then performing all multiplications.
