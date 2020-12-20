@@ -120,3 +120,9 @@ Notes: Day 16. All I did was re-confirm that exhaustive search with backtracking
 Start: 09:31
 Stop: 11:40
 Notes: Day 17. Quantized 3-D space is difficult to model. I think my initial model, a deque of lists of strings is cumbersome and needs to be replaced with a set of tuples representing x,y,z coordinates of active cubes. This should require less memory to represent and should make identifying a cell's active neighbors much easier--if the neighbor's coordinates are in the set then it's active; otherwise it's inactive.
+
+20DEC2020
+Start: 09:01
+Solution at: 09:40
+Notes: Day 17. Modeling space as a set of points with active cubes made everything fall into place. I think I stuck with the string model for so long yesterday because it made it easy to compare the output of my implementation to the problem author's representation of a correct simulation at various stages. A better approach would have been to write functions to convert back and forth between representations. My implementation includes separate functions for three and four dimensions that could probably be refactored to allow the same set of functions to simulate n-dimensional space.
+
