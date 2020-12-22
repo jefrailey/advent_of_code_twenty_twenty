@@ -130,3 +130,8 @@ Notes: Day 17. Modeling space as a set of points with active cubes made everythi
 Start: 13:55
 Stop: 15:54
 Notes: Day 18. Part one was doable by evaluating while parsing. The change in part two makes correctly evaluating addition after one closing parenthesis but inside another, e.g. `((1 + 2) * (1 + 2) + 1)`, difficult. Part two may benefit from separating parsing and evaluation. This change would allow the evaluator to iteratively manipulate the tree first replacing all additions with literal values then performing all multiplications.
+
+21DEC2020
+Start: 18:15
+Solution at: 19:57
+Notes: Day 18. I ate while working on this one, which is not something I normally do. Eating does not explain how or why I found so many dead ends before finding a working implementation. I know I initially felt that replacing subexpressions with their evaluation was inelegant, which caused me to try a bunch of different approaches that did not quite work. I am quite curious if it could be done that way. I started tonight by writing a recursive decent parser and interpreter thinking I could obtain the desired result by switching the standard parsing order of multiplication and addition, but that did not work as implemented. `1 + 2 * 3` was parsed and interpreted as `add(1, mul(2, 3))`, which I believe was a failure of the implementation and not the approach, but I have not yet been able to convince myself one way or the other.
