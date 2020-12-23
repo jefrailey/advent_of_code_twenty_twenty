@@ -135,3 +135,8 @@ Notes: Day 18. Part one was doable by evaluating while parsing. The change in pa
 Start: 18:15
 Solution at: 19:57
 Notes: Day 18. I ate while working on this one, which is not something I normally do. Eating does not explain how or why I found so many dead ends before finding a working implementation. I know I initially felt that replacing subexpressions with their evaluation was inelegant, which caused me to try a bunch of different approaches that did not quite work. I am quite curious if it could be done that way. I started tonight by writing a recursive decent parser and interpreter thinking I could obtain the desired result by switching the standard parsing order of multiplication and addition, but that did not work as implemented. `1 + 2 * 3` was parsed and interpreted as `add(1, mul(2, 3))`, which I believe was a failure of the implementation and not the approach, but I have not yet been able to convince myself one way or the other.
+
+22DEC2020
+Start: 17:41
+Stop: 19:02
+Notes: Day 19. Part one complete. I was quick to identify that the rules could be used to construct a regex pattern, which offloaded handling the "or" (represented by `|`) in the rules. However, I was slow to reach for depth first search through the dependency graph. Initially, I was concerned that it would be too slow or encounter a set of rules that it could not resolve. The former was potentially obviated by storing rules as they were fully resolved so each subsequent request for that rule was O(1). I did not try it without this, so I do not know if that really mattered for this problem set. The latter was resolved by just trying it out. That it worked without problem suggests I do not have a good sense of what conditions could cause dependency graph resolution to fail.
