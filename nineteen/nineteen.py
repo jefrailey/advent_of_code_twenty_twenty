@@ -207,6 +207,42 @@ However, after updating rules 8 and 11, a total of 12 messages match:
 After updating rules 8 and 11, how many messages completely match rule 0?
 """
 
+
+def part_two(rules: Sequence[str], messages: Sequence[str]) -> int:
+    """
+    Return the count of valid messages after changing rule 8 and 11 to recurse.
+    """
+
+    """
+    Only rule 0 refers to rule 8 or rule 11
+    Rule 8 and 11 reference the same rules they did before, but can recurse to themselves.
+    The new rule 8 repeats indefinitely to the right, so we can append a "+" to it and let
+    the regex engine handle it.
+    Rule 11 repeats by appending subrules to each side. E.g. 11 := 42 31 | 42 42 31 31 | 42 42 42 31 31 31 | ...
+    Which can be represented as:
+        (42{1}31{1} | 42{2}31{2} | ... | 42{n-1}31{n-1} | 42{n}31{n})
+    for some value of n that is sufficiently large
+    We can identify the largest expansion of 11 that is valid, then for that expansion and each smaller expansion
+    prepend rule 8 to it and see if it is a full match for the current message.
+    """
+    parsed_rules = parse_rules(rules)
+    dependencies = graph_dependencies(parsed_rules)
+    eight = resolve_rule(dependencies, parsed_rules, idx=8)
+    thrity_one = resolve_rule(dependencies, parsed_rules, idx=31)
+    fourty_two = resolve_rule(dependencies, parsed_rules, idx=42)
+    patterns = [
+        re.compile(f"({eight})+{fourty_two}{{{n}}}{thrity_one}{{{n}}}")
+        # The upper bound for the range was determined by manually running this
+        # starting with 100 then decreasing to the minimum value that
+        # produced the same count of valid messages.
+        for n in range(1, 6)
+    ]
+    return sum(
+        any(re.fullmatch(pattern, message) is not None for pattern in patterns)
+        for message in messages
+    )
+
+
 if __name__ == "__main__":
 
     def verify(expected: Any, actual: Any) -> None:
@@ -219,7 +255,6 @@ if __name__ == "__main__":
         "3: b",
     ]
     graphed = graph_dependencies(parse_rules(rules))
-    # expected = {1: {0, 2}, 2: {0}, 3: {2}}
     expected = {0: {1, 2}, 2: {1, 3}}
     verify(expected, graphed)
 
@@ -246,3 +281,4 @@ if __name__ == "__main__":
     from nineteen_input import rules, messages
 
     print("Part one: ", part_one(rules, messages))
+    print("Part two: ", part_two(rules, messages))
