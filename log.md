@@ -143,3 +143,8 @@ Notes: Day 19. Part one complete. I was quick to identify that the rules could b
 
 24DEC2020
 Notes: Day 19 part two. No start or stop time for today. I re-read the problem today around 11 and thought about it while doing housework and errands. I determined that writing a bespoke solution for this particular input would be relatively easy while attempting to generate a more generic algorithm might be quite difficult. I'm not sure if, "you only need to handle the rules you have," was suggesting that the solution should involve as much human pre-processing as I performed.
+
+24DEC2020
+Start: 15:19
+Stop: 16:25
+Notes: Day 20. Part one complete. Lots of interruptions. Instead of actually constructing the image, I recognized that identifying the corner tiles was a simpler problem and solved that instead. Generally, I think this is a good approach, but in this particular case I expect it will hinder me in solving part two.
