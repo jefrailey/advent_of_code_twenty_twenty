@@ -148,3 +148,8 @@ Notes: Day 19 part two. No start or stop time for today. I re-read the problem t
 Start: 15:19
 Stop: 16:25
 Notes: Day 20. Part one complete. Lots of interruptions. Instead of actually constructing the image, I recognized that identifying the corner tiles was a simpler problem and solved that instead. Generally, I think this is a good approach, but in this particular case I expect it will hinder me in solving part two.
+
+26DEC2020
+Start: 08:37
+Stop: 10:27
+Notes: Day 20 part two. I've spent most of the time today waffling between representations. I added a class to represent an individual tile with methods to handle rotation and flipping.
