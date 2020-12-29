@@ -153,3 +153,8 @@ Notes: Day 20. Part one complete. Lots of interruptions. Instead of actually con
 Start: 08:37
 Stop: 10:27
 Notes: Day 20 part two. I've spent most of the time today waffling between representations. I added a class to represent an individual tile with methods to handle rotation and flipping.
+
+29DEC2020
+Start: 09:35
+Solution at: 10:37
+Notes: Day 21.
