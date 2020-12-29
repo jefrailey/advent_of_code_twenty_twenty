@@ -158,3 +158,9 @@ Notes: Day 20 part two. I've spent most of the time today waffling between repre
 Start: 09:35
 Solution at: 10:37
 Notes: Day 21.
+
+29DEC2020
+Start: 11:18
+Solution at: 12:15
+Notes: Day 22.
+
