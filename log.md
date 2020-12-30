@@ -164,3 +164,7 @@ Start: 11:18
 Solution at: 12:15
 Notes: Day 22.
 
+30DEC2020
+Start: 09:31
+Stop: 13:04
+Notes: Day 23. Part one was straightforward, but the straightforward solution is, of course, too slow for part two. I have not been able to devise an algorithm that significantly reduces the number of operations. The best I have been able to come up with is to "move" cup labels by updating their index position in a map. This should reduce the number of operations per iteration from 1,000,000 to the average distance between a the current value and the next value, which is hopefully much less than 1,000,000. I have had a lot of trouble implementing this approach. I have not done a great job mentally or visually tracking the indexes and offsets and pre-emptively identifying the edge cases caused by needing to wrap indexes. Pausing to draw a picture helped some and is something I need to remember to do earlier in the process.
