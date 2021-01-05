@@ -168,3 +168,8 @@ Notes: Day 22.
 Start: 09:31
 Stop: 13:04
 Notes: Day 23. Part one was straightforward, but the straightforward solution is, of course, too slow for part two. I have not been able to devise an algorithm that significantly reduces the number of operations. The best I have been able to come up with is to "move" cup labels by updating their index position in a map. This should reduce the number of operations per iteration from 1,000,000 to the average distance between a the current value and the next value, which is hopefully much less than 1,000,000. I have had a lot of trouble implementing this approach. I have not done a great job mentally or visually tracking the indexes and offsets and pre-emptively identifying the edge cases caused by needing to wrap indexes. Pausing to draw a picture helped some and is something I need to remember to do earlier in the process.
+
+04JAN2021
+Start: 17:40
+Solution at: 19:00
+Notes: Day 24. I almost quit for the day just before solving this. I was writing a log entry that included a description of the algorithm I was attempting to use. There was a slight mistake in the algorithm that prevented black tiles from being flipped to white when they no longer had black neighbors. So, at least in this case, I would have benefited from thoroughly explaining the algorithm in words--writing and/or speaking are good tools for thought.
