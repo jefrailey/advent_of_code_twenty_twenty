@@ -173,3 +173,8 @@ Notes: Day 23. Part one was straightforward, but the straightforward solution is
 Start: 17:40
 Solution at: 19:00
 Notes: Day 24. I almost quit for the day just before solving this. I was writing a log entry that included a description of the algorithm I was attempting to use. There was a slight mistake in the algorithm that prevented black tiles from being flipped to white when they no longer had black neighbors. So, at least in this case, I would have benefited from thoroughly explaining the algorithm in words--writing and/or speaking are good tools for thought.
+
+05JAN2021
+Start: 17:15
+Solution at: 17:49
+Notes: Day 25, part one. I am locked out of part two until I complete part two of 13, 20, and 23.
